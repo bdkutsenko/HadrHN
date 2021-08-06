@@ -1,0 +1,34 @@
+$Id: History,v 1.92 2010-11-09 21:26:24 asaim Exp $
+----------------------------------------------------
+
+     =========================================================
+     Geant4 - an Object-Oriented Toolkit for Simulation in HEP
+     =========================================================
+
+                    HadrHN History file
+                    ---------------------
+This file should be used by the G4 example coordinator to briefly
+summarize all major modifications introduced in the code and keep
+track of all tags.
+
+     ----------------------------------------------------------
+     * Reverse chronological order (last date on top), please *
+     ----------------------------------------------------------
+
+06-08-21 B. Kutsenko (hadrhn-V10-06-01)
+- added plotXScompare_models.py and plotXSmodel_only.py
+- added target choice for the gamma projectile
+- README updated
+- for Geant4 11b
+
+18-04-19 A.Bagulia (hadrhn-V10-05-02)
+- added README
+
+09-04-19 A.Bagulia (hadrhn-V10-05-01)
+- updated HadrHN.cc, plotXS.py
+
+29-11-18 V.Ivanchenko (hadrhn-V10-04-01)
+- for Geant4 10.5
+
+22-05-18 V.Ivanchenko (hadrhn-V10-04-00)
+     
