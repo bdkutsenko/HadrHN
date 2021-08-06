@@ -62,12 +62,8 @@ ROOT files are creating automatically in HadrHN/test directory.
 python plotXS.py proton_proton_NS.root 0 # each ROOT file from HadrHN/test directory
 python plotXS.py proton_proton_NS.root 1 # "1" only for p+p interaction to add cosmic data
 
-Without experimental data points:
-python plotXSmodel_only.py gamma_proton_CHIPS_1_0.root 0 # Plot from 0 to 200 MeV in linear scale on x and logarithmic scale on y
-python plotXSmodel_only.py gamma_proton_CHIPS_1_0.root 1 # Plot from 0 to 100 000 MeV in double log scale
-python plotXSmodel_only.py gamma_proton_CHIPS_1_0.root 2 # Plot from 0 to 1.e+13 MeV in 10-based logarithmic scale on y
 
-The same as plotXSmodel_only.py but with two models comparison :
+Two models comparison, experimental points added if possible :
 python plotXSmodel_only.py gamma_proton_CHIPS_1_0.root gamma_proton_IAEA_1_0.root 0 # Plot from 0 to 200 MeV in linear scale on x and logarithmic scale on y
 python plotXSmodel_only.py gamma_proton_CHIPS_1_0.root gamma_proton_IAEA_1_0.root 1 # Plot from 0 to 100 000 MeV in double log scale
 python plotXSmodel_only.py gamma_proton_CHIPS_1_0.root gamma_proton_IAEA_1_0.root 2 # Plot from 0 to 1.e+13 MeV in 10-based logarithmic scale on y
