@@ -339,14 +339,14 @@ int main(int argc, char** argv)
   Histo    histo;
   G4String hname;
   if(strcmp(atomName,"H")==0 && A != 2) hname = "test/" + project->GetParticleName() + "_" 
-    + target->GetParticleName() + "_" + name + "_" +std::to_string(Z);
+    + target->GetParticleName() + "_" + name + "_" +std::to_string(Z)+"_" +std::to_string(A) ;
   else if (strcmp(atomName,"H")==0 && A == 2)hname = "test/" + project->GetParticleName() + "_" 
-    +  "deuteron_" + name + "_" +std::to_string(Z);
+    +  "deuteron_" + name + "_" +std::to_string(Z)+"_" +std::to_string(A) ;
   else hname = "test/" + project->GetParticleName() + "_" 
-	 + atomName + "_" + name + "_" +std::to_string(Z) ;
+	 + atomName + "_" + name + "_" +std::to_string(Z)+"_" +std::to_string(A) ;
   G4double mass = project->GetPDGMass()/MeV;
 
-  const G4int nbins = 481;
+  const G4int nbins = 48001;
   G4double pmin =  10*MeV;
   G4double pmax =  1e10*GeV;
   G4double xmin =  std::log10(pmin);
@@ -359,7 +359,7 @@ int main(int argc, char** argv)
   histo.Add1D("3","EM Elastic",nbins,xmin-dx*0.5,xmax+dx*0.5);
 
   G4double lxmin = 0*MeV;
-  G4double lxmax = 200*MeV;
+  G4double lxmax = 1e5*MeV;
   G4double dlx = (lxmax - lxmin)/G4double(nbins-1);
   
   if(partname == "gamma") histo.Add1D("4","Photonuclear Low Energy Region",nbins,lxmin-dlx*0.5,lxmax+dlx*0.5);

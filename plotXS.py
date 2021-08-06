@@ -22,7 +22,7 @@ def plotXS():
     datapath = os.path.join(HADSRC,'HadrHN','data')
 
     if len(sys.argv) < 3:
-        print('''Usage: python plotXS.py file.root 0/1''')
+        print '''Usage: python plotXS.py file.root 0/1'''
         sys.exit()
     else:
         fname = sys.argv[1]
@@ -66,7 +66,7 @@ def plotXS():
     elif project == 'kaon+':
         hhh = gPad.DrawFrame(1, 1., 7, 100. ,'cross sections in mb')
     elif project == 'gamma':
-        hhh = gPad.DrawFrame(1., 0.01, 7., 2. ,'cross sections in mb')
+        hhh = gPad.DrawFrame(1, 0.01, 7, 1. ,'cross sections in mb')
     elif project == 'proton' and flag == '1':
         hhh = gPad.DrawFrame(1, 1., 12, 1000. ,'cross sections in mb')
     else:
@@ -87,7 +87,7 @@ def plotXS():
     leg.SetHeader('Cross sections') 
 
     rootflname = os.path.join(testpath, fname)
-    print('File to open ', rootflname)
+    print 'File to open ', rootflname
     f1 = TFile(rootflname)
 
     AddH1(f1, leg, 2, 'h0', 'Inelastic ' + model_name)
@@ -112,7 +112,7 @@ def plotXS():
         datafile = os.path.join(datapath, 'rpp2016-' + part[project] + part[target] + '_elastic.dat')
 
 ##    if project != 'gamma':
-    if hasDataEl == 1:
+    if os.path.isfile(datafile) and hasDataEl == 1:
         AddGraph(datafile, leg, 'data El PDG16', 1)
 
     if project == 'pi+':
@@ -128,7 +128,7 @@ def plotXS():
     else:
         datafile = os.path.join(datapath, 'rpp2016-' + part[project] + part[target] + '_total.dat')
 
-    if hasDataIn == 1:
+    if os.path.isfile(datafile) and hasDataIn == 1:
         AddGraph(datafile, leg, 'data Tot PDG16', 2)
 
     leg.Draw('SAME')
@@ -143,7 +143,7 @@ def plotXS():
 
 def readEnvVar(envar):
     if os.environ.get(envar) is None:
-        print('''No environment variable %s''' % envar)
+        print '''No environment variable %s''' % envar
         sys.exit()
     else:
         return os.environ.get(envar)
@@ -153,7 +153,7 @@ def openFile(fileName):
     try:
         infile = open(fileName, 'r')
     except IOError:
-        print('Input file <',fileName, '> does not exist! Exit')
+        print 'Input file <',fileName, '> does not exist! Exit'
         sys.exit(2)
 
 def AddH1(ff, leg, idx, hh, title):
@@ -189,7 +189,7 @@ def AddGraph(ff, leg, title, idx):
      globals()['gr' + str(idx)] = TGraphAsymmErrors(len(PLAB),PLAB,SIG,errPLABl,errPLABh,errSIGl,errSIGh)
      globals()['gr' + str(idx)].SetMarkerStyle(19+idx)
      globals()['gr' + str(idx)].SetMarkerColor(1)
-     globals()['gr' + str(idx)].SetMarkerSize(0.4)
+     globals()['gr' + str(idx)].SetMarkerSize(0.8)
      globals()['gr' + str(idx)].Draw('SAME P')
      leg.AddEntry(globals()['gr' + str(idx)],title,'p')
 
